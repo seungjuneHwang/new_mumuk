@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.util.Arrays;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,13 +39,24 @@ public class Controller extends HttpServlet {
 		StringBuffer url = request.getRequestURL();   
 		System.out.println("getRequestURL: " + url.toString());   // StringBuffer 출력할때 toString
 		
-//		String [] uriArr = uri.split(".");   // 문자열 자르기
+//		String [] uriArr = uri.split("\\.");   // 문자열 자르기
 //		System.out.println(Arrays.toString(uriArr));
 		// 문자열을 자르면 배열에 각 저장 되는데 0번째가 첫번째 문자열
 		// 만약에 uri 요청이 insert면 insert페이지로 이동
+		String site = "";  // 페이지 이동할 주소(*.jsp)
 		if (uri.equals("/insert.menu")) {
-			System.out.println("inset.jsp  로 이동");
+			System.out.println("insert.jsp  로 이동");
+			site = "/insert.jsp";
+		} else if (uri.equals("/see.menu")) {
+			site = "/see.jsp";
+		} else if (uri.equals("/best.menu")) {
+			site = "/best.jsp";
+		} else {
+			site = "/404.jsp";
 		}
+		
+		RequestDispatcher dis = request.getRequestDispatcher(site);
+		dis.forward(request, response);
 	}
 
 	/**

@@ -11,13 +11,13 @@
       <a class="nav-link" href="/">메인</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="best.jsp">메뉴추천</a>
+      <a class="nav-link" href="/best.menu">메뉴추천</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="insert.jsp">메뉴넣기</a>
+      <a class="nav-link" href="/insert.menu">메뉴넣기</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="see.jsp">메뉴보기</a>
+      <a class="nav-link" href="/see.menu">메뉴보기</a>
     </li>
   </ul>
 </nav>
