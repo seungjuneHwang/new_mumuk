@@ -47,14 +47,17 @@ public class Controller extends HttpServlet {
 		if (uri.equals("/insert.menu")) {
 			System.out.println("insert.jsp  로 이동");
 			site = "/insert.jsp";
+		} else if (uri.equals("/insert_proc.menu")) {
+			site = "/InsertServlet";
 		} else if (uri.equals("/see.menu")) {
-			site = "/see.jsp";
+			site = "/SeeServlet";
 		} else if (uri.equals("/best.menu")) {
 			site = "/best.jsp";
 		} else {
 			site = "/404.jsp";
 		}
 		
+		// 서버내에서 페이지 이동(request, response의 정보를 다 들고)
 		RequestDispatcher dis = request.getRequestDispatcher(site);
 		dis.forward(request, response);
 	}

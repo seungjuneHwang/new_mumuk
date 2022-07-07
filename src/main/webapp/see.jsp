@@ -1,3 +1,5 @@
+<%@page import="dto.Menu"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -15,6 +17,13 @@
 
 <%@ include file="header.jsp" %>
 <h3>메뉴보기</h3>
+<%
+	// SeeServlet에서 셋팅한 데이터를 여기서 가지고 오기
+	List<Menu> list = (List<Menu>)request.getAttribute("menuList");
+	for (Menu m : list) {
+		out.println(m.getMenu() + "<br>");
+	}
+%>
 </body>
 </html>
     
